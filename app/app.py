@@ -17,6 +17,7 @@ class VideoThread(QtCore.QThread):
 
     def run(self):
         cap = cv2.VideoCapture(0)
+        print("Starting video streaming")
         while self._run_flag:
             ret, cv_img = cap.read()
             if ret:
@@ -24,6 +25,7 @@ class VideoThread(QtCore.QThread):
         cap.release()
 
     def stop(self):
+        print("Stopping streaming")
         self._run_flag = False
         self.wait()
 
