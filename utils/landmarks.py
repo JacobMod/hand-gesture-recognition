@@ -1,11 +1,10 @@
-from itertools import chain
 from copy import deepcopy
 from typing import List
-
 from pandas import DataFrame
+import mediapipe.framework.formats.landmark_pb2.NormalizedLandmarkList as NormalizedLandmarkList
 
 
-def list_landmarks(landmarks) -> List[float]:
+def list_landmarks(landmarks: NormalizedLandmarkList) -> List[float]:
     landmark_points = []
 
     for landmark in landmarks.landmark:
